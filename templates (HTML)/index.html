@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <link rel="icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Calculator</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+      <div class="form-group">
+        <label for="first-number">Enter the first number</label>
+        <input type="text" id="first-number" name="a" required>
+      </div>
+      <div class="form-group">
+        <label for="second-number">Enter the second number</label>
+        <input type="text" id="second-number" name="b" required>
+      </div>
+      <div class="form-group">
+        <label for="operation">Select an operation</label>
+        <select id="operation" name="operation" required>
+          <option value="">Select an operation</option>
+          <option value="add">Add</option>
+          <option value="subtract">Subtract</option>
+          <option value="divide">Divide</option>
+          <option value="multiply">Multiply</option>
+        </select>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+    <p>{{ prediction_text }}</p>
+  </div>
+</body>
+</html>
